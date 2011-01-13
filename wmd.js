@@ -213,7 +213,8 @@
 				style.position = "absolute";
 				style.top = "0";
 
-				style.zIndex = "1000";
+                                // make the z-index larger so that wmd can be used on some popup dialog (e.g.  extjs window).
+				style.zIndex = "10000";
 
 				// Some versions of Konqueror don't support transparent colors
 				// so we make the whole window transparent.
@@ -253,7 +254,8 @@
 				dialog.style.padding = "10px;";
 				dialog.style.position = "fixed";
 				dialog.style.width = "400px";
-				dialog.style.zIndex = "1001";
+                                // make the z-index larger so that wmd can be used on some popup dialog (e.g.  extjs window).
+				dialog.style.zIndex = "10001";
 
 				// The dialog text.
 				var question = document.createElement("div");
