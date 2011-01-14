@@ -933,7 +933,19 @@
 			}
 
 			if (wmd.panels.preview) {
-				wmd.panels.preview.innerHTML = text;
+                            // original WMD code allowed javascript injection, like this:
+                            //    <img src="http://www.google.com/intl/en_ALL/images/srpr/logo1w.png" onload="alert('haha');"/>
+                            // now, we first ensure elements (and attributes of IMG and A elements) are in a whitelist
+                            // and if not in whitelist, replace with blanks in preview to prevent XSS attacks
+                            // when editing malicious markdown
+                            var okTags = /^(<\/?(b|blockquote|code|del|dd|dl|dt|em|h1|h2|h3|i|kbd|li|ol|p|pre|s|sup|sub|strong|strike|ul)>|<(br|hr)\s?\/?>)$/i;
+                            var okLinks = /^(<a\shref="(\#\d+|(https?|ftp):\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+)"(\stitle="[^"<>]+")?\s?>|<\/a>)$/i;
+                            var okImg = /^(<img\ssrc="https?:(\/\/[-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+)"(\swidth="\d{1,3}")?(\sheight="\d{1,3}")?(\salt="[^"<>]*")?(\stitle="[^"<>]*")?\s?\/?>)$/i;
+                            text = text.replace(/<[^<>]*>?/gi, function (tag) {
+                                return (tag.match(okTags) || tag.match(okLinks) || tag.match(okImg)) ? tag : ""
+                            })
+
+                            wmd.panels.preview.innerHTML = text;  // original code
 			}
 
 			setPanelScrollTops();
