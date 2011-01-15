@@ -945,6 +945,11 @@
                                 return (tag.match(okTags) || tag.match(okLinks) || tag.match(okImg)) ? tag : ""
                             })
 
+                            // addeded by wenqiang, to prettify code output
+                            text = text.replace(/<pre><code>([^\r]*?)<\/code><\/pre>/gi, function (wholeMatch, m1) {
+                                return '<pre><code class="prettyprint">' + prettyPrintOne(m1) + '</code></pre>';
+                            })
+
                             wmd.panels.preview.innerHTML = text;  // original code
 			}
 

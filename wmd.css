@@ -1,93 +1,60 @@
 
-.wmd-panel
+.wmd-button-bar
 {
-	margin-left: 25%;
-	margin-right: 25%;
-	width: 50%;
-	min-width: 500px;
 }
 
-#wmd-editor
+.wmd-input
 {
-	background-color: Aquamarine;
+    padding: 8px !important;
+    font-family: Courier New,Consolas,DejaVu Sans Mono,monospace;
 }
 
-.wmd-button-bar 
+.wmd-preview
 {
-	width: 100%;
-	/*
-	background-color: Silver; 
-	*/
+    background-color: #fff;
+    border: 1px dashed #bbb;
+    margin: 5px 0;
+    padding: 8px;
+    max-height: 200px;
+    line-height: 130%;
+    font-size: 107%;
+    clear: both;
+    overflow: auto;
+    font-family: Georgia,Arial,sans-serif;
 }
 
-.wmd-input 
-{ 
-	height: 500px;
-	width: 100%;
-	background-color: Gainsboro;
-	border: 1px solid DarkGray;
-}
-
-.wmd-preview 
-{ 
-	background-color: LightGray; 
-}
-
-.wmd-output 
-{ 
-	background-color: Pink;
-}
-
-.wmd-button-row 
+/* button bar */
+.wmd-button-row
 {
-	position: relative; 
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	margin-top: 10px;
-	padding: 0px;  
-	height: 20px;
+    position: relative;
+    margin:0 0 5px 0;
+    padding: 0px;
+    height: 20px;
 }
 
 .wmd-spacer
 {
-	width: 1px; 
-	height: 20px; 
-	margin-left: 7px;
-	margin-right:7px;
-	
-	position: relative;
-	background-color: Silver;
-	display: inline-block; 
-	list-style: none;
+    width: 1px;
+    height: 14px;
+    margin:0 7px 2px 7px;
+    position: relative;
+    background-color: Silver;
+    display: inline-block;
+    list-style: none;
 }
 
 .wmd-button
 {
-	width: 20px; 
-	height: 20px; 
-	margin-left: 5px;
-	margin-right: 5px;
-	
-	position: relative;
-	background-image: url(images/wmd-buttons.png);
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	display: inline-block; 
-	list-style: none;
+    width: 20px;
+    height: 20px;
+    margin:0 1px;
+    position: relative;
+    background-image: url(images/wmd-buttons.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    list-style: none;
 }
-
-.wmd-button > a
-{
-	width: 20px; 
-	height: 20px; 
-	margin-left: 5px;
-	margin-right: 5px;
-	
-	position: absolute;
-	display: inline-block; 
-}
-
 
 /* sprite button slicing style information */
 .wmd-bold-button    {background-position: 0px 0;}
@@ -105,34 +72,207 @@
 .wmd-spacer3        {}
 .wmd-undo-button    {background-position: -200px 0;}
 .wmd-redo-button    {background-position: -220px 0;}
-.wmd-help-button    {position:absolute;right: 0px; background-position: -240px 0;}
+.wmd-help-button    {display:none;   }
 
-
+/* prompt dialog */
 .wmd-prompt-background
 {
-	background-color: Black;
+    background-color: Black;
 }
 
 .wmd-prompt-dialog
 {
-	border: 1px solid #999999;
-	background-color: #F5F5F5;
+    border: 1px solid #999999;
+    background-color: #F5F5F5;
 }
 
 .wmd-prompt-dialog > div {
-	font-size: 0.8em;
-	font-family: arial, helvetica, sans-serif;
+    font-size: 0.8em;
+    font-family: arial, helvetica, sans-serif;
 }
 
 
-.wmd-prompt-dialog > form > input[type="text"] {
-	border: 1px solid #999999;
-	color: black;
+.wmd-prompt-dialog > form > input[type="text"]
+{
+    border: 1px solid #999999;
+    color: black;
 }
 
-.wmd-prompt-dialog > form > input[type="button"]{
-	border: 1px solid #888888;
-	font-family: trebuchet MS, helvetica, sans-serif;
-	font-size: 0.8em;
-	font-weight: bold;
+.wmd-prompt-dialog > form > input[type="button"]
+{
+    border: 1px solid #888888;
+    font-family: trebuchet MS, helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* wmd output styles */
+.wmd a,
+.wmd b,
+.wmd blockquote,
+.wmd code,
+.wmd dd,
+.wmd del,
+.wmd dl,
+.wmd dt,
+.wmd em,
+.wmd h1,
+.wmd h2,
+.wmd h3,
+.wmd i,
+.wmd img,
+.wmd kbd,
+.wmd li,
+.wmd ol,
+.wmd p,
+.wmd pre,
+.wmd s,
+.wmd strike,
+.wmd strong,
+.wmd sub,
+.wmd sup,
+.wmd u,
+.wmd ul
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    color:#333;
+}
+
+.wmd h1
+{
+    font-size: 170%;
+    font-weight: bold;
+    margin-bottom:1em;
+}
+
+.wmd h2
+{
+    font-size: 140%;
+    font-weight: bold;
+    margin-bottom:1em;
+}
+
+.wmd h3
+{
+    font-size: 110%;
+    font-weight: bold;
+    margin-bottom:1em;
+}
+
+.wmd p
+{
+    clear: both;
+    margin-bottom:1em;
+    word-wrap: break-word;
+    line-height: 150%;
+}
+
+.wmd pre
+{
+    background-color: #eee;
+    font-family: Courier New,Consolas,DejaVu Sans Mono,monospace;
+    margin: 0 0 10px 30px;
+    overflow: auto;
+    max-height: 300px;
+    padding: 5px;
+    width: auto;
+}
+
+.wmd code
+{
+    font-family: Courier New,Consolas,DejaVu Sans Mono,monospace;
+    background-color: #eee;
+    padding: 3px;
+}
+
+.wmd blockquote
+{
+    background-color: #eee;
+    margin: 0 30px 10px 30px;
+    padding: 5px;
+}
+
+.wmd ul
+{
+    margin: 0 0 1em 30px;
+    list-style-type: square;
+}
+
+.wmd ol
+{
+    margin: 0 0 1em 30px;
+    list-style-type: decimal;
+}
+
+.wmd ol ul,
+.wmd ul ol,
+.wmd ul ul,
+.wmd ol ol
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.wmd b,
+.wmd strong
+{
+    font-weight: bold;
+}
+
+.wmd i,
+.wmd em
+{
+    font-style: italic;
+}
+
+.wmd u
+{
+    text-decoration: underline;
+}
+
+.wmd s,
+.wmd strike,
+.wmd del
+{
+    text-decoration: line-through;
+}
+
+.wmd hr
+{
+    background-color: #aaa;
+    border: 0;
+    height: 1px;
+    margin: 0 0 20px 0;
+}
+
+.wmd sup
+{
+    font-size: 80%;
+    position: relative;
+    top: -0.4em;
+}
+
+.wmd sub
+{
+    font-size: 80%;
+    position: relative;
+    top: 0.3em;
+}
+
+.wmd kbd
+{
+    font-family: Courier New,Consolas,DejaVu Sans Mono,monospace;
+    background: none repeat scroll 0 0 #eee;
+    border-color: #ccc #aaa #888 #bbb;
+    border-style: solid;
+    border-width: 1px 3px 3px 1px;
+    color: #000;
+    padding: 2px 4px;
+    white-space: nowrap;
 }
